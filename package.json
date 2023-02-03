@@ -1,0 +1,17 @@
+{
+	"name": "rewrite-imports-to-nodenext",
+	"private": true,
+	"type": "module",
+	"bin": "./src/index.js",
+	"author": "Jesse van Assen <J.van.Assen@TOPdesk.com>",
+	"license": "ISC",
+	"dependencies": {
+		"@babel/parser": "^7.20.15",
+		"ast-types": "^0.15.2",
+		"recast": "^0.22.0"
+	},
+	"devDependencies": {
+		"@types/node": "^18.11.18",
+		"typescript": "^4.9.5"
+	}
+}
