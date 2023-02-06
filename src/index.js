@@ -82,14 +82,9 @@ function toExtensionImport(base, relativePath) {
 	const importPath = path.resolve(base, relativePath);
 
 	if (isDirectory(importPath)) {
-		let newPath = path.join(relativePath, 'index.js');
-
-		// path.join removes the leading './'
-		if (!isRelativePath(newPath)) { 
-			newPath = './' + newPath;
-		}
-
-		return newPath;
+		return relativePath +
+			(!relativePath.endsWith('/') ? '/' : '') +
+			'index.js';
 	} else if (isExtensionlessSourceFile(importPath)) {
 		return relativePath + '.js';
 	}
