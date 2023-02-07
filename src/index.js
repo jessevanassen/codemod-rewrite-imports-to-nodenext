@@ -45,6 +45,22 @@ function process(base, src) {
 
 			this.traverse(node);
 		},
+		visitExportNamedDeclaration(node) {
+			if (node.value.source) {
+				// An export node can either be a node that re-exports from a
+				// different file, or a node that exports variables. Only the
+				// former contains a "source" property, and those are the only
+				// ones to rewrite.
+				rewriteImport(base, node.value.source);
+			}
+
+			this.traverse(node);
+		},
+		visitExportAllDeclaration(node) {
+			rewriteImport(base, node.value.source);
+
+			this.traverse(node);
+		},
 		visitCallExpression(node) {
 			if (node.value.callee.type === 'Import') {
 				rewriteImport(base, node.value.arguments[0]);
