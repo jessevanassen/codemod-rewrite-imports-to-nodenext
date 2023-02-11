@@ -70,7 +70,7 @@ function process(base, src) {
 		},
 	});
 
-	return print(ast).code;
+	return print(ast, { quote: 'single' }).code;
 }
 
 
