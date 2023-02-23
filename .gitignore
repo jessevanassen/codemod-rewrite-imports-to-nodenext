@@ -1,1 +1,10 @@
 node_modules/
+
+# Generated TypeScript sources
+src/**/*.d.ts
+src/**/*.js
+bin/**/*.d.ts
+bin/**/*.js
+test/**/*.d.ts
+test/**/*.js
+!test/fixture/**/*.js
